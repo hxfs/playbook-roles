@@ -1,0 +1,11 @@
+---
+# handlers file for kubernetes
+- name: start the kubernetes master
+  shell: systemctl start {{ item.name  }}
+  with_items:
+    - { name: etcd.service }
+    - { name: kube-apiserver.service }
+    - { name: kube-controller-manager.service }
+    - { name: kube-scheduler.service }
+    - { name: kubelet.service }
+    - { name: kube-proxy.service }

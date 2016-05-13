@@ -1,0 +1,7 @@
+---
+# handlers file for kubernetes_nodes
+- name: start the kubernetes node 
+  shell: systemctl start {{ item.name  }}
+  with_items:
+    - { name: kubelet.service }
+    - { name: kube-proxy.service }

@@ -1,0 +1,15 @@
+---
+# tasks file for kubernetes_nodes
+- name: yum install kubernetes
+  yum: name=kubernetes state=present
+
+- name: remove the default file
+  shell: rm -rf {{ dest_path  }}/*
+
+- name: config the file
+  template: src={{ item  }} dest={{ dest_path  }}
+  with_items:
+    - config
+    - kubelet
+    - proxy
+  notify: start the kubernetes node

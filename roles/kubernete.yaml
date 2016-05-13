@@ -1,0 +1,11 @@
+---
+- hosts: kuber_master 
+  roles:
+    - kubernetes
+
+- hosts: kuber_node
+  roles:
+    - kubernetes_nodes
+  tags:
+    - node
+

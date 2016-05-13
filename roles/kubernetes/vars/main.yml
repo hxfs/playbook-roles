@@ -1,0 +1,4 @@
+---
+# vars file for kubernetes
+dest_path: "/etc/kubernetes/"
+kuber_master: node3
